@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://careerportfoliocentral.net/sitemap.xml
