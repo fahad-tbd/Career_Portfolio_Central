@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next build --turbopack && npm run prepare-deployment",
+    "prepare-deployment": "if exist production-build rmdir /s /q production-build && mkdir production-build && xcopy out\\* production-build\\ /e /i",
+    "deploy": "node deploy.js",
+    "test-build": "npx serve production-build -p 3001"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

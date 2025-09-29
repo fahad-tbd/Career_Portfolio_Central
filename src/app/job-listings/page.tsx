@@ -34,7 +34,7 @@ const allJobs: Job[] = [
       salary: '$120k - $150k',
       posted: '2 days ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
         </svg>
       ),
@@ -55,7 +55,7 @@ const allJobs: Job[] = [
       salary: '$130k - $160k',
       posted: '1 day ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
         </svg>
       ),
@@ -76,7 +76,7 @@ const allJobs: Job[] = [
       salary: '$80k - $100k',
       posted: '3 days ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5H9a2 2 0 00-2 2v12a4 4 0 004 4h10V5z"/>
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 9h4m-4 4h4"/>
         </svg>
@@ -98,7 +98,7 @@ const allJobs: Job[] = [
       salary: '$110k - $140k',
       posted: '1 week ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
         </svg>
       ),
@@ -119,7 +119,7 @@ const allJobs: Job[] = [
       salary: '$125k - $155k',
       posted: '4 days ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
         </svg>
       ),
@@ -140,7 +140,7 @@ const allJobs: Job[] = [
       salary: '$140k - $170k',
       posted: '5 days ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
         </svg>
       ),
@@ -161,7 +161,7 @@ const allJobs: Job[] = [
       salary: '$100k - $130k',
       posted: '6 days ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
         </svg>
@@ -183,7 +183,7 @@ const allJobs: Job[] = [
       salary: '$60k - $80k',
       posted: '1 week ago',
       logo: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z"/>
         </svg>
       ),
@@ -424,7 +424,7 @@ export default function JobListingsPage() {
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 w-full max-w-full">
               {filteredJobs.length === 0 ? (
                 <div className="text-center py-12">
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-brand-navy to-brand-teal rounded-2xl flex items-center justify-center text-white font-bold text-xl">
@@ -435,62 +435,64 @@ export default function JobListingsPage() {
                 </div>
               ) : (
                 filteredJobs.map((job) => (
-                  <div key={job.id} className="card hover:shadow-lg transition-shadow duration-200 border-l-4 border-l-brand-teal group">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                  <div key={job.id} className="card hover:shadow-lg transition-shadow duration-200 border-l-4 border-l-brand-teal group p-4 sm:p-6 w-full max-w-full overflow-hidden">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6 w-full min-w-0">
                       {/* Job Info */}
-                      <div className="flex-1">
-                        <div className="flex items-start gap-4">
-                          <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${job.logoColor} text-white rounded-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
+                      <div className="flex-1 min-w-0 w-full">
+                        <div className="flex items-start gap-3 sm:gap-4">
+                          <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br ${job.logoColor} text-white rounded-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
                             {job.logo}
                           </div>
-                          <div className="flex-1">
-                            <div className="flex items-start justify-between">
-                              <div>
-                                <h3 className="text-xl font-semibold text-brand-gray-900 hover:text-brand-navy transition-colors">
-                                  {job.title}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="flex-1 min-w-0">
+                                <div className="flex flex-wrap items-center gap-2 mb-1">
+                                  <h3 className="text-lg sm:text-xl font-semibold text-brand-gray-900 hover:text-brand-navy transition-colors break-words leading-tight">
+                                    {job.title}
+                                  </h3>
                                   {job.featured && (
-                                    <span className="ml-2 bg-yellow-400 text-brand-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
+                                    <span className="bg-yellow-400 text-brand-gray-900 px-2 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
                                       Featured
                                     </span>
                                   )}
-                                </h3>
-                                <p className="text-brand-teal font-medium">{job.company}</p>
-                                <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-brand-gray-600">
-                                  <div className="flex items-center gap-1">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                </div>
+                                <p className="text-sm sm:text-base text-brand-teal font-medium break-words leading-tight">{job.company}</p>
+                                <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 text-xs sm:text-sm text-brand-gray-600">
+                                  <div className="flex items-center gap-1 break-words">
+                                    <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
-                                    {job.location}
+                                    <span className="break-words">{job.location}</span>
                                     {job.remote && (
-                                      <span className="ml-1 bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                                      <span className="ml-1 bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs whitespace-nowrap">
                                         Remote
                                       </span>
                                     )}
                                   </div>
-                                  <div className="flex items-center gap-1">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <div className="flex items-center gap-1 break-words">
+                                    <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    {job.type}
+                                    <span className="break-words">{job.type}</span>
                                   </div>
-                                  <div className="flex items-center gap-1">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <div className="flex items-center gap-1 break-words">
+                                    <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                                     </svg>
-                                    {job.salary}
+                                    <span className="break-words">{job.salary}</span>
                                   </div>
                                 </div>
                               </div>
-                              <span className="text-sm text-brand-gray-500">{job.posted}</span>
+                              <span className="text-xs sm:text-sm text-brand-gray-500 whitespace-nowrap flex-shrink-0">{job.posted}</span>
                             </div>
 
                             {/* Tags */}
-                            <div className="flex flex-wrap gap-2 mt-4">
+                            <div className="flex flex-wrap gap-1 sm:gap-2 mt-3 sm:mt-4">
                               {job.tags.map((tag) => (
                                 <span
                                   key={tag}
-                                  className="bg-blue-50 text-brand-navy px-3 py-1 rounded-full text-sm font-medium"
+                                  className="bg-blue-50 text-brand-navy px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium break-words"
                                 >
                                   {tag}
                                 </span>
@@ -501,7 +503,7 @@ export default function JobListingsPage() {
                       </div>
 
                       {/* Actions */}
-                      <div className="flex flex-col sm:flex-row gap-3 lg:flex-col">
+                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:flex-col flex-shrink-0 w-full sm:w-auto lg:w-auto max-w-full">
                         <Button 
                           variant="primary" 
                           size="sm"

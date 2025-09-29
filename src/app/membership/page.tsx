@@ -466,20 +466,20 @@ export default function MembershipPage() {
 
           <div className={`overflow-hidden rounded-2xl shadow-2xl transition-all duration-700 ${
             animateOnScroll['comparison'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`} style={{ transitionDelay: '300ms' }}>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white">
+          } bg-white`} style={{ transitionDelay: '300ms' }}>
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-brand-gray-300 scrollbar-track-gray-100" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <table className="w-full bg-white min-w-[800px]">
                 <thead>
                   <tr className="bg-gradient-to-r from-brand-navy to-brand-teal text-white">
-                    <th className="text-left p-6 font-bold text-lg">Features</th>
-                    <th className="text-center p-6 font-bold text-lg">Free</th>
-                    <th className="text-center p-6 font-bold text-lg relative">
+                    <th className="text-left p-3 sm:p-4 md:p-6 font-bold text-sm sm:text-base md:text-lg min-w-[120px]">Features</th>
+                    <th className="text-center p-3 sm:p-4 md:p-6 font-bold text-sm sm:text-base md:text-lg min-w-[100px]">Free</th>
+                    <th className="text-center p-3 sm:p-4 md:p-6 font-bold text-sm sm:text-base md:text-lg relative min-w-[140px]">
                       Professional
-                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-brand-gold text-brand-navy px-2 py-1 rounded text-xs font-bold">
+                      <div className="absolute -top-1 sm:-top-2 left-1/2 transform -translate-x-1/2 bg-brand-gold text-brand-navy px-1 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-bold">
                         POPULAR
                       </div>
                     </th>
-                    <th className="text-center p-6 font-bold text-lg">Executive</th>
+                    <th className="text-center p-3 sm:p-4 md:p-6 font-bold text-sm sm:text-base md:text-lg min-w-[120px]">Executive</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -487,14 +487,20 @@ export default function MembershipPage() {
                     <tr key={index} className={`border-b border-brand-gray-100 hover:bg-brand-light/50 transition-colors duration-200 ${
                       index % 2 === 0 ? 'bg-white' : 'bg-brand-light/20'
                     }`}>
-                      <td className="p-6 font-semibold text-brand-gray-900">{feature.category}</td>
-                      <td className="p-6 text-center text-brand-gray-600">{feature.free}</td>
-                      <td className="p-6 text-center text-brand-gray-600 bg-blue-50/50 font-medium">{feature.professional}</td>
-                      <td className="p-6 text-center text-brand-gray-600">{feature.executive}</td>
+                      <td className="p-3 sm:p-4 md:p-6 font-semibold text-brand-gray-900 text-sm sm:text-base">{feature.category}</td>
+                      <td className="p-3 sm:p-4 md:p-6 text-center text-brand-gray-600 text-sm sm:text-base">{feature.free}</td>
+                      <td className="p-3 sm:p-4 md:p-6 text-center text-brand-gray-600 bg-blue-50/50 font-medium text-sm sm:text-base">{feature.professional}</td>
+                      <td className="p-3 sm:p-4 md:p-6 text-center text-brand-gray-600 text-sm sm:text-base">{feature.executive}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+            {/* Mobile scroll hint */}
+            <div className="md:hidden text-center mt-4">
+              <p className="text-sm text-brand-gray-500">
+                📱 Swipe left to see all membership features →
+              </p>
             </div>
           </div>
         </div>

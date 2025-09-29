@@ -6,8 +6,10 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signupFormSchema, type SignupFormData } from '@/utils/validations';
 import { useNotification } from '@/hooks/useNotification';
+import { authUtils } from '@/utils/auth';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import PasswordInput from '@/components/ui/PasswordInput';
 import NotificationModal from '@/components/ui/NotificationModal';
 
 const SignupPage: React.FC = () => {
@@ -27,12 +29,21 @@ const SignupPage: React.FC = () => {
     resolver: yupResolver(signupFormSchema),
   });
 
-  const onSubmit = async () => {
+  const onSubmit = async (data: SignupFormData) => {
     setIsLoading(true);
     
     // Simulate API call delay
     setTimeout(() => {
       setIsLoading(false);
+      
+      // Store user credentials in localStorage
+      authUtils.registerUser({
+        email: data.email,
+        password: data.password,
+        firstName: data.firstName,
+        lastName: data.lastName,
+      });
+      
       reset();
       // Show the success notification
       showSignupSuccess();
@@ -90,9 +101,8 @@ const SignupPage: React.FC = () => {
               />
 
               {/* Password Field */}
-              <Input
+              <PasswordInput
                 {...register('password')}
-                type="password"
                 label="Password"
                 placeholder="Create a password"
                 error={errors.password?.message}
@@ -106,9 +116,8 @@ const SignupPage: React.FC = () => {
               />
 
               {/* Confirm Password Field */}
-              <Input
+              <PasswordInput
                 {...register('confirmPassword')}
-                type="password"
                 label="Confirm Password"
                 placeholder="Confirm your password"
                 error={errors.confirmPassword?.message}

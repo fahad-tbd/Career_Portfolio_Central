@@ -85,10 +85,20 @@ export const useNotification = () => {
   const showLoginPrompt = useCallback(() => {
     showNotification({
       type: 'info',
-      title: 'Account Required',
-      message: 'Please login first to explore the article',
+      title: 'Account Not Found',
+      message: 'Please signup first',
       autoClose: true,
       autoCloseDelay: 4000,
+    });
+  }, [showNotification]);
+
+  const showAccountUnderReview = useCallback(() => {
+    showNotification({
+      type: 'warning',
+      title: 'Account Under Review',
+      message: 'Your account is under review, we will get back soon',
+      autoClose: true,
+      autoCloseDelay: 5000,
     });
   }, [showNotification]);
 
@@ -282,6 +292,7 @@ export const useNotification = () => {
     showWarning,
     // Career Portfolio Central specific methods
     showLoginPrompt,
+    showAccountUnderReview,
     showLoginPromptForMoreBlogs,
     showSignupSuccess,
     showForgotPasswordSuccess,

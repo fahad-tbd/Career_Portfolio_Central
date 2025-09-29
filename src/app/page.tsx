@@ -40,10 +40,10 @@ export default function Home() {
     setIsAnimationComplete(false);
 
     const targets = {
-      users: 100000,
-      success: 98,
-      counselors: 500,
-      jobs: 50000
+      users: 98333,
+      success: 96,
+      counselors: 491,
+      jobs: 49166
     };
 
     // Delay the animation start to ensure component is fully mounted
@@ -372,14 +372,14 @@ export default function Home() {
               }
             ].map((stat, index) => (
               <div key={index} className="animate-on-scroll hover-lift" style={{animationDelay: `${index * 200}ms`}}>
-                <div className="p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-                  <div className="text-4xl md:text-5xl font-bold mb-3 stats-number">
+                <div className="p-4 sm:p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 stats-number leading-tight break-words">
                     {stat.number}
                   </div>
-                  <div className="text-lg font-semibold mb-2 text-white/95">
+                  <div className="text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 text-white/95 leading-tight break-words">
                     {stat.label}
                   </div>
-                  <div className="text-sm text-white/80">
+                  <div className="text-xs sm:text-sm text-white/80 leading-tight break-words">
                     {stat.description}
                   </div>
                 </div>

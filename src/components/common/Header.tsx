@@ -17,12 +17,14 @@ const Header: React.FC = () => {
   const pathname = usePathname();
 
   // Define primary navigation items and filter arrays
-  const PRIMARY_ROUTES = ['/', '/about', '/blog', '/contact'];
+  const PRIMARY_ROUTES_BEFORE_SERVICES = ['/', '/about'];
+  const PRIMARY_ROUTES_AFTER_SERVICES = ['/blog', '/contact'];
   const AUTH_ROUTES = ['/login', '/signup'];
   
-  const PRIMARY_ITEMS = NAVIGATION_ITEMS.filter(item => PRIMARY_ROUTES.includes(item.href));
+  const PRIMARY_ITEMS_BEFORE = NAVIGATION_ITEMS.filter(item => PRIMARY_ROUTES_BEFORE_SERVICES.includes(item.href));
+  const PRIMARY_ITEMS_AFTER = NAVIGATION_ITEMS.filter(item => PRIMARY_ROUTES_AFTER_SERVICES.includes(item.href));
   const MORE_ITEMS = NAVIGATION_ITEMS.filter(item => 
-    !PRIMARY_ROUTES.includes(item.href) && !AUTH_ROUTES.includes(item.href)
+    ![...PRIMARY_ROUTES_BEFORE_SERVICES, ...PRIMARY_ROUTES_AFTER_SERVICES].includes(item.href) && !AUTH_ROUTES.includes(item.href)
   );
 
   // Check if current page is in More dropdown
@@ -89,9 +91,10 @@ const Header: React.FC = () => {
     <header 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out',
+        'bg-white backdrop-blur-lg border-b border-brand-gray-100/50',
         isScrolled 
-          ? 'bg-white/98 backdrop-blur-xl shadow-xl border-b border-brand-gray-200/60' 
-          : 'bg-white/95 backdrop-blur-lg border-b border-brand-gray-100/50'
+          ? 'shadow-xl' 
+          : 'shadow-sm'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,13 +102,13 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center group focus:outline-none focus:ring-2 focus:ring-brand-navy focus:ring-offset-2 rounded-xl p-2 -m-2 transition-all duration-300 hover:bg-white/50"
+            className="flex items-center group focus:outline-none rounded-xl p-2 -m-2 transition-all duration-300 hover:bg-white/50"
             aria-label="Career Portfolio Central Homepage"
           >
             <div className="relative w-40 h-12 lg:w-48 lg:h-14 rounded-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent rounded-xl"></div>
               <Image
-                src="/assets/logo/Career Portfolio Central Logo_-02.png"
+                src="/assets/logo/original-logo.png"
                 alt="Career Portfolio Central Logo"
                 fill
                 className="object-contain hover:scale-105 transition-transform duration-300 relative z-10"
@@ -116,8 +119,8 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Primary navigation">
-            {/* Primary Navigation Items */}
-            {PRIMARY_ITEMS.map((item) => (
+            {/* Primary Navigation Items - Before Services */}
+            {PRIMARY_ITEMS_BEFORE.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -135,7 +138,7 @@ const Header: React.FC = () => {
               </Link>
             ))}
 
-            {/* More Dropdown */}
+            {/* Services Dropdown */}
             <div className="relative" ref={moreDropdownRef}>
               <button
                 ref={moreButtonRef}
@@ -206,6 +209,25 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
+
+            {/* Primary Navigation Items - After Services */}
+            {PRIMARY_ITEMS_AFTER.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  'relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ease-in-out',
+                  'focus:outline-none focus:ring-2 focus:ring-brand-navy focus:ring-offset-2',
+                  'hover:bg-brand-gray-100/80',
+                  pathname === item.href
+                    ? 'text-brand-navy bg-brand-gray-100 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-0.5 after:bg-brand-navy after:rounded-full'
+                    : 'text-brand-gray-700 hover:text-brand-navy'
+                )}
+                aria-current={pathname === item.href ? 'page' : undefined}
+              >
+                {item.name}
+              </Link>
+            ))}
           </nav>
 
           {/* Auth Buttons - Desktop */}
@@ -270,8 +292,8 @@ const Header: React.FC = () => {
         >
           <div className="border-t border-brand-gray-200 pt-4">
             <nav className="flex flex-col space-y-1" role="navigation" aria-label="Mobile navigation">
-              {/* Primary Navigation Items */}
-              {PRIMARY_ITEMS.map((item) => (
+              {/* Primary Navigation Items - Before Services */}
+              {PRIMARY_ITEMS_BEFORE.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -289,7 +311,7 @@ const Header: React.FC = () => {
                 </Link>
               ))}
 
-              {/* Mobile More Section */}
+              {/* Mobile Services Section */}
               <div className="mt-2">
                 <button
                   onClick={() => setIsMobileMoreOpen(!isMobileMoreOpen)}
@@ -358,6 +380,25 @@ const Header: React.FC = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Primary Navigation Items - After Services */}
+              {PRIMARY_ITEMS_AFTER.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={toggleMenu}
+                  className={cn(
+                    'px-4 py-3 text-base font-medium rounded-lg transition-all duration-200',
+                    'focus:outline-none focus:ring-2 focus:ring-brand-navy focus:ring-offset-2',
+                    pathname === item.href
+                      ? 'text-brand-navy bg-brand-gray-100 border-l-4 border-brand-navy'
+                      : 'text-brand-gray-700 hover:text-brand-navy hover:bg-brand-gray-50'
+                  )}
+                  aria-current={pathname === item.href ? 'page' : undefined}
+                >
+                  {item.name}
+                </Link>
+              ))}
               
               {/* Mobile Auth Buttons */}
               <div className="flex flex-col space-y-3 pt-6 border-t border-brand-gray-200 mt-4">

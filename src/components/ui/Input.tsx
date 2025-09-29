@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { cn } from '@/utils/cn';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -10,7 +10,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   endIcon?: React.ReactNode;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input = forwardRef<HTMLInputElement, InputProps>(({
   label,
   error,
   helperText,
@@ -20,7 +20,7 @@ const Input: React.FC<InputProps> = ({
   className,
   id,
   ...props
-}) => {
+}, ref) => {
   const autoId = React.useId();
   const inputId = id || `input-${autoId}`;
   
@@ -44,6 +44,7 @@ const Input: React.FC<InputProps> = ({
         
         <input
           id={inputId}
+          ref={ref}
           className={cn(
             'block w-full px-3 py-2 border border-brand-gray-300 rounded-lg shadow-sm placeholder-brand-gray-400',
             'focus:ring-2 focus:ring-blue-500 focus:border-brand-navy',
@@ -58,7 +59,7 @@ const Input: React.FC<InputProps> = ({
         />
         
         {endIcon && (
-          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
             <div className="text-brand-gray-500">{endIcon}</div>
           </div>
         )}
@@ -73,6 +74,8 @@ const Input: React.FC<InputProps> = ({
       )}
     </div>
   );
-};
+});
+
+Input.displayName = 'Input';
 
 export default Input;

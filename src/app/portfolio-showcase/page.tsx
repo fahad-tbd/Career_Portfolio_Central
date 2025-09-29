@@ -35,235 +35,8 @@ const observerOptions = {
   rootMargin: '0px 0px -50px 0px'
 };
 
-// Portfolio data - moved outside component to prevent recreation
-const portfolios: Portfolio[] = [
-    {
-      id: 1,
-      name: 'Professional UI/UX Designer',
-      role: 'UI/UX Design Portfolio',
-      company: 'Tech Industry',
-      category: 'Design',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '2.5k',
-      likes: 184,
-      featured: true,
-      description: 'Passionate UX designer with 8+ years of experience creating user-centered digital experiences. Led design teams at Fortune 500 companies and startups.',
-      skills: ['Figma', 'Adobe Creative Suite', 'Prototyping', 'User Research', 'Design Systems'],
-      achievements: [
-        'Led design for Google Pay mobile app redesign (30M+ users)',
-        'Increased user engagement by 45% through UX optimization',
-        'Built design system adopted by 12 product teams',
-        'Mentor for Google Design internship program'
-      ],
-      testimonial: "Comprehensive design portfolio showcasing user-centered approach and innovative solutions for complex problems.",
-      linkedIn: '#',
-      portfolio: '#',
-      projects: [
-        {
-          title: 'Google Pay Redesign',
-          description: 'Complete mobile app redesign focusing on user experience and accessibility',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['Figma', 'Principle', 'User Testing']
-        },
-        {
-          title: 'Design System',
-          description: 'Comprehensive design system for enterprise products',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['Figma', 'Storybook', 'Design Tokens']
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Professional Full Stack Developer',
-      role: 'Development Portfolio',
-      company: 'Technology Sector',
-      category: 'Development',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '1.8k',
-      likes: 156,
-      featured: false,
-      description: 'Full-stack developer specializing in cloud-native applications and microservices architecture. Expert in React, Node.js, and Azure.',
-      skills: ['React', 'Node.js', 'TypeScript', 'Azure', 'Docker', 'Kubernetes'],
-      achievements: [
-        'Architected microservices platform serving 10M+ requests/day',
-        'Led migration to Azure reducing infrastructure costs by 35%',
-        'Open source contributor with 5k+ GitHub stars',
-        'Microsoft Azure MVP for 3 consecutive years'
-      ],
-      projects: [
-        {
-          title: 'Azure DevOps Enhancement',
-          description: 'Built scalable CI/CD pipeline management system',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['React', 'Node.js', 'Azure DevOps', 'Docker']
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Professional Product Manager',
-      role: 'Product Management Portfolio',
-      company: 'Product Industry',
-      category: 'Product',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '3.2k',
-      likes: 298,
-      featured: true,
-      description: 'Strategic product leader with proven track record of launching innovative features. Expert in data-driven product development and growth strategies.',
-      skills: ['Product Strategy', 'Data Analysis', 'A/B Testing', 'User Research', 'Roadmap Planning'],
-      achievements: [
-        'Launched Instagram Reels reaching 1B+ users in first year',
-        'Drove 25% increase in DAU through feature optimization',
-        'Led cross-functional teams of 15+ engineers and designers',
-        'Featured speaker at ProductCon and Mind the Product'
-      ],
-      testimonial: "Strategic product portfolio demonstrating vision, execution, and measurable impact across multiple product launches.",
-      projects: [
-        {
-          title: 'Instagram Reels',
-          description: 'Led product strategy and launch of short-form video feature',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['Product Analytics', 'A/B Testing', 'User Research']
-        }
-      ]
-    },
-    {
-      id: 4,
-      name: 'Professional Data Scientist',
-      role: 'Data Science Portfolio',
-      company: 'Data Industry',
-      category: 'Data Science',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '1.9k',
-      likes: 167,
-      featured: false,
-      description: 'Machine learning expert with PhD in Computer Science. Specialized in recommendation systems and deep learning for e-commerce optimization.',
-      skills: ['Python', 'TensorFlow', 'PyTorch', 'AWS', 'Machine Learning', 'Deep Learning'],
-      achievements: [
-        'Built recommendation engine increasing sales by $50M annually',
-        'Published 15+ papers in top-tier ML conferences',
-        'Led ML team of 8 data scientists',
-        'AWS Machine Learning Specialty certified'
-      ],
-      projects: [
-        {
-          title: 'Amazon Recommendation Engine',
-          description: 'Next-generation ML recommendation system for e-commerce',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['Python', 'TensorFlow', 'AWS SageMaker', 'Spark']
-        }
-      ]
-    },
-    {
-      id: 5,
-      name: 'Jennifer Smith',
-      role: 'Marketing Director',
-      company: 'Netflix',
-      category: 'Marketing',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '2.1k',
-      likes: 203,
-      featured: false,
-      description: 'Growth marketing leader with expertise in digital campaigns and brand strategy. Proven track record of scaling user acquisition and engagement.',
-      skills: ['Digital Marketing', 'Growth Strategy', 'Brand Management', 'Analytics', 'Campaign Management'],
-      achievements: [
-        'Led global marketing campaign for Netflix Originals',
-        'Increased subscriber growth by 30% in key markets',
-        'Managed $20M annual marketing budget',
-        'Winner of Marketing Excellence Award 2023'
-      ],
-      projects: [
-        {
-          title: 'Netflix Global Campaign',
-          description: 'Multi-channel marketing campaign for original content',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['Google Ads', 'Facebook Ads', 'Analytics', 'CRM']
-        }
-      ]
-    },
-    {
-      id: 6,
-      name: 'Robert Wilson',
-      role: 'Staff Software Engineer',
-      company: 'Tesla',
-      category: 'Development',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '2.7k',
-      likes: 231,
-      featured: true,
-      description: 'Systems engineer focused on autonomous vehicle software and embedded systems. Expert in C++, real-time systems, and automotive software.',
-      skills: ['C++', 'Python', 'Embedded Systems', 'Real-time Systems', 'Automotive Software'],
-      achievements: [
-        'Key contributor to Tesla Autopilot software stack',
-        'Optimized perception algorithms improving accuracy by 20%',
-        'Led embedded systems team of 12 engineers',
-        'Patent holder for 3 automotive safety innovations'
-      ],
-      projects: [
-        {
-          title: 'Autopilot Perception System',
-          description: 'Real-time computer vision system for autonomous driving',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['C++', 'CUDA', 'Computer Vision', 'Real-time Systems']
-        }
-      ]
-    },
-    {
-      id: 7,
-      name: 'Professional Creative Director',
-      role: 'Creative Direction Portfolio',
-      company: 'Creative Industry',
-      category: 'Design',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '3.5k',
-      likes: 412,
-      featured: true,
-      description: 'Award-winning creative director with 12+ years in digital design and brand strategy. Led creative campaigns for major global brands.',
-      skills: ['Creative Direction', 'Brand Strategy', 'Adobe Creative Suite', 'Motion Graphics', 'Typography'],
-      achievements: [
-        'Creative Director for Adobe Creative Cloud campaigns',
-        'Cannes Lions Gold Award winner',
-        'Led rebranding project increasing brand recognition by 40%',
-        'Mentor for Adobe Design Scholarship program'
-      ],
-      projects: [
-        {
-          title: 'Adobe Creative Cloud Rebrand',
-          description: 'Complete visual identity redesign for creative software suite',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['Adobe CC', 'Motion Graphics', 'Brand Strategy']
-        }
-      ]
-    },
-    {
-      id: 8,
-      name: 'Alex Thompson',
-      role: 'DevOps Engineer',
-      company: 'Spotify',
-      category: 'Development',
-      image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-      views: '2.3k',
-      likes: 189,
-      featured: false,
-      description: 'DevOps specialist with expertise in Kubernetes, cloud infrastructure, and CI/CD pipelines. Passionate about automation and scalable systems.',
-      skills: ['Kubernetes', 'Docker', 'AWS', 'Terraform', 'Jenkins', 'Monitoring'],
-      achievements: [
-        'Architected Kubernetes platform serving 400M+ users',
-        'Reduced deployment time by 80% through automation',
-        'Led cloud migration saving $2M annually',
-        'Kubernetes Certified Administrator and Developer'
-      ],
-      projects: [
-        {
-          title: 'Spotify Infrastructure Platform',
-          description: 'Scalable Kubernetes platform for music streaming service',
-          image: '/assets/portfolio-showcase/kelly-sikkema-xO6NCQjIWFY-unsplash.jpg',
-          technologies: ['Kubernetes', 'Docker', 'AWS', 'Terraform']
-        }
-      ]
-    }
-];
+// Portfolio data - Currently empty as we're building our community  
+const portfolios: Portfolio[] = [];
 
 const categories = ['All', 'Design', 'Development', 'Product', 'Data Science', 'Marketing'];
 
@@ -437,22 +210,69 @@ export default function PortfolioShowcasePage() {
         {/* Portfolio Grid */}
         <section className="py-20" data-animate id="portfolios">
           <div className="container">
-            {filteredPortfolios.length === 0 ? (
-              <div className="text-center py-16">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-brand-navy to-brand-teal rounded-2xl flex items-center justify-center text-white font-bold text-xl">
-                  NF
+            {portfolios.length === 0 ? (
+              <div className="text-center py-20">
+                <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-brand-navy to-brand-teal rounded-3xl flex items-center justify-center text-white">
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-brand-gray-900 mb-2">No Portfolios Found</h3>
-                <p className="text-brand-gray-600 mb-6">Try adjusting your search terms or category filters.</p>
+                <h3 className="text-3xl font-bold text-brand-gray-900 mb-4">Be the First to Showcase Your Portfolio!</h3>
+                <p className="text-lg text-brand-gray-600 mb-8 max-w-2xl mx-auto">
+                  We&apos;re building something amazing! Our portfolio showcase is launching soon. 
+                  Be among the first professionals to showcase your work and connect with opportunities.
+                </p>
+                <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+                  <Link href="/signup">
+                    <Button 
+                      size="lg"
+                      className="bg-gradient-to-r from-brand-navy to-brand-teal text-white hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                    >
+                      Join the Waitlist
+                    </Button>
+                  </Link>
+                  <Link href="/resume-builder">
                 <Button 
                   variant="outline" 
-                  onClick={() => {
-                    setSearchTerm('');
-                    setSelectedCategory('All');
-                  }}
-                >
-                  Clear Filters
+                      size="lg"
+                      className="border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white transition-all duration-300"
+                    >
+                      Build Your Resume First
                 </Button>
+                  </Link>
+                </div>
+                <div className="mt-12 bg-gradient-to-r from-brand-navy/5 to-brand-teal/5 rounded-2xl p-8">
+                  <h4 className="text-xl font-bold text-brand-gray-900 mb-4">What&apos;s Coming Soon:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-brand-teal rounded-lg flex items-center justify-center text-white text-sm font-bold">
+                        ✓
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-brand-gray-900 mb-1">Professional Portfolios</h5>
+                        <p className="text-sm text-brand-gray-600">Showcase your best work and projects</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-brand-teal rounded-lg flex items-center justify-center text-white text-sm font-bold">
+                        ✓
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-brand-gray-900 mb-1">Direct Connections</h5>
+                        <p className="text-sm text-brand-gray-600">Connect with recruiters and employers</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-brand-teal rounded-lg flex items-center justify-center text-white text-sm font-bold">
+                        ✓
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-brand-gray-900 mb-1">Career Opportunities</h5>
+                        <p className="text-sm text-brand-gray-600">Get discovered for your next role</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

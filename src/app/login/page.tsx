@@ -6,8 +6,10 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginFormSchema, type LoginFormData } from '@/utils/validations';
 import { useNotification } from '@/hooks/useNotification';
+import { authUtils } from '@/utils/auth';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import PasswordInput from '@/components/ui/PasswordInput';
 import NotificationModal from '@/components/ui/NotificationModal';
 import Modal from '@/components/ui/Modal';
 
@@ -19,6 +21,7 @@ const LoginPage: React.FC = () => {
     notification,
     hideNotification,
     showLoginPrompt,
+    showAccountUnderReview,
     showForgotPasswordSuccess,
   } = useNotification();
 
@@ -31,15 +34,25 @@ const LoginPage: React.FC = () => {
     resolver: yupResolver(loginFormSchema),
   });
 
-  const onSubmit = async () => {
+  const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     
     // Simulate API call delay
     setTimeout(() => {
       setIsLoading(false);
+      
+      // Check if the credentials match a registered user
+      const isValidUser = authUtils.validateCredentials(data.email, data.password);
+      
+      if (isValidUser) {
+        // User is registered and credentials match - show account under review message
+        showAccountUnderReview();
+      } else {
+        // User is not registered or credentials don't match - show signup prompt
+        showLoginPrompt();
+      }
+      
       reset();
-      // Show the "Please signup first" notification
-      showLoginPrompt();
     }, 1000);
   };
 
@@ -86,9 +99,8 @@ const LoginPage: React.FC = () => {
               />
 
               {/* Password Field */}
-              <Input
+              <PasswordInput
                 {...register('password')}
-                type="password"
                 label="Password"
                 placeholder="Enter your password"
                 error={errors.password?.message}
