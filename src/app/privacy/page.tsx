@@ -11,9 +11,6 @@ export default function PrivacyPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-gradient">Privacy Policy</span>
             </h1>
-            <p className="text-xl text-brand-gray-600">
-              Last updated: January 15, 2024
-            </p>
           </div>
 
           {/* Content */}

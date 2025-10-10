@@ -20,7 +20,6 @@ export default function Home() {
     counselors: 0,
     jobs: 0
   });
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   
   const {
@@ -37,7 +36,6 @@ export default function Home() {
       counselors: 0,
       jobs: 0
     });
-    setIsAnimationComplete(false);
 
     const targets = {
       users: 98333,
@@ -46,48 +44,50 @@ export default function Home() {
       jobs: 49166
     };
 
-    // Delay the animation start to ensure component is fully mounted
-    const startTimeout = setTimeout(() => {
+    const startAnimation = () => {
+      setAnimatedStats({
+        users: 0,
+        success: 0,
+        counselors: 0,
+        jobs: 0
+      });
+
       const duration = 2000; // 2 seconds
       const steps = 60;
       const stepTime = duration / steps;
 
       let currentStep = 0;
       const timer = setInterval(() => {
-        if (currentStep < steps) {
+        currentStep++;
+        if (currentStep <= steps) {
           setAnimatedStats({
             users: Math.floor((targets.users * currentStep) / steps),
             success: Math.floor((targets.success * currentStep) / steps),
             counselors: Math.floor((targets.counselors * currentStep) / steps),
             jobs: Math.floor((targets.jobs * currentStep) / steps)
           });
-          currentStep++;
         } else {
           clearInterval(timer);
           setAnimatedStats(targets);
-          setIsAnimationComplete(true);
         }
       }, stepTime);
 
       // Store timer for cleanup
       window.__statsTimer = timer;
-    }, 500);
+    };
 
     // Handle page visibility for back navigation
     const handleVisibilityChange = () => {
-      if (!document.hidden && !isAnimationComplete) {
-        // Re-trigger animation if page becomes visible and animation hasn't completed
-        setTimeout(() => {
-          setAnimatedStats({
-            users: 0,
-            success: 0,
-            counselors: 0,
-            jobs: 0
-          });
-          setIsAnimationComplete(false);
-        }, 100);
+      if (!document.hidden && animatedStats.users === 0) {
+        // Only re-trigger animation if page becomes visible and stats are at 0
+        setTimeout(() => startAnimation(), 100);
       }
     };
+
+    // Delay the animation start to ensure component is fully mounted
+    const startTimeout = setTimeout(() => {
+      startAnimation();
+    }, 500);
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
@@ -98,7 +98,7 @@ export default function Home() {
         clearInterval(window.__statsTimer);
       }
     };
-  }, [isAnimationComplete]);
+  }, [animatedStats.users]); // Add dependency to prevent infinite loop but allow retrigger
 
   return (
     <>

@@ -111,23 +111,34 @@ const posts = [
     },
 ];
 
-const categories = [
-  { name: 'All', count: 25 },
-  { name: 'Resume Tips', count: 8 },
-  { name: 'Career Advice', count: 6 },
-  { name: 'Interview Prep', count: 5 },
-  { name: 'Portfolio Tips', count: 3 },
-  { name: 'Industry Insights', count: 2 },
-  { name: 'Personal Branding', count: 1 },
-];
-
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const { notification, hideNotification, showLoginPrompt, showLoginPromptForMoreBlogs, showNewsletterSuccess } = useNotification();
 
-  // Filter posts based on search term and category
+  // Combine all posts (featured + regular posts) for counting - memoized to prevent re-creation
+  const allPosts = useMemo(() => [featuredPost, ...posts], []);
+
+  // Calculate dynamic category counts
+  const categories = useMemo(() => {
+    const categoryCountMap: { [key: string]: number } = {};
+    
+    // Count posts by category
+    allPosts.forEach(post => {
+      categoryCountMap[post.category] = (categoryCountMap[post.category] || 0) + 1;
+    });
+    
+    // Create categories array with actual counts
+    const categoryNames = ['All', ...Object.keys(categoryCountMap).sort()];
+    
+    return categoryNames.map(name => ({
+      name,
+      count: name === 'All' ? allPosts.length : categoryCountMap[name] || 0
+    }));
+  }, [allPosts]);
+
+  // Filter posts based on search term and category (only from regular posts for display)
   const filteredPosts = useMemo(() => {
     return posts.filter(post => {
       const matchesSearch = searchTerm === '' || 
@@ -505,7 +516,7 @@ export default function BlogPage() {
                 </svg>
               </Button>
               <p className="text-sm text-brand-gray-500 mt-3">
-                Showing {filteredPosts.length} of 25+ articles
+                Showing {filteredPosts.length} of {allPosts.length} articles
               </p>
             </div>
           )}
@@ -545,7 +556,7 @@ export default function BlogPage() {
               </Button>
             </form>
             <p className="text-sm opacity-75 mt-4">
-              Join 25,000+ professionals. Unsubscribe anytime.
+              Join 10,000+ professionals. Unsubscribe anytime.
             </p>
           </div>
         </div>

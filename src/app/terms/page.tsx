@@ -11,9 +11,6 @@ export default function TermsPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-gradient">Terms of Service</span>
             </h1>
-            <p className="text-xl text-brand-gray-600">
-              Last updated: January 15, 2024
-            </p>
           </div>
 
           {/* Content */}
@@ -201,9 +198,9 @@ export default function TermsPage() {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="space-y-2 text-brand-gray-700">
-                <p><strong>Email:</strong> legal@careerportfoliocentral.net</p>
-                <p><strong>Address:</strong> Career Portfolio Central, Legal Department</p>
-                <p><strong>Phone:</strong> 1-800-CAREER-1</p>
+                <p><strong>Email:</strong> info@careerportfoliocentral.net</p>
+                <p><strong>Address:</strong> A-610 WORLD TRADE TOWER BEHIND SKODA SHOWROOM VILLAGE MAKARBA, TALUKA AHMEDABAD CITY-380051</p>
+                {/* <p><strong>Phone:</strong> 1-800-CAREER-1</p> */}
               </div>
               <div className="mt-6">
                 <Link href="/contact" className="text-brand-navy hover:underline">

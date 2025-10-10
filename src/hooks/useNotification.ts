@@ -282,6 +282,21 @@ export const useNotification = () => {
     });
   }, [showNotification]);
 
+  const showLiveChatLoginPrompt = useCallback(() => {
+    showNotification({
+      type: 'info',
+      title: 'Login Required',
+      message: 'Please login first to access live chat support',
+      autoClose: true,
+      autoCloseDelay: 4000,
+      showActionButton: true,
+      actionButtonText: 'Login Now',
+      onActionClick: () => {
+        window.location.href = '/login';
+      },
+    });
+  }, [showNotification]);
+
   return {
     notification,
     showNotification,
@@ -311,5 +326,6 @@ export const useNotification = () => {
     showLoginToViewTemplate,
     showLoginToUseTemplate,
     showLoginToSaveJob,
+    showLiveChatLoginPrompt,
   };
 };

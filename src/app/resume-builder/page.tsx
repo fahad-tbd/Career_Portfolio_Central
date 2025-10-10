@@ -490,7 +490,7 @@ export default function ResumeBuilderPage() {
                     <Button 
                       variant="outline" 
                       size="sm" 
-                      className="flex-1 border-brand-gray-300 hover:border-brand-navy hover:text-brand-navy"
+                      className="flex-1"
                       onClick={showLoginToViewTemplate}
                     >
                     Preview
